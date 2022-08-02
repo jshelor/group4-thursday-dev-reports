@@ -19,13 +19,13 @@ public class PlaintextWriter extends ReportWriter {
 <span class="fc" id="L19">        Arrays.sort(docsAsArray, byPath);</span>
         
        // double totalSizeMB = 0.0;
-<span class="fc bfc" id="L22" title="All 2 branches covered.">        for(HTMLDocument document: docsAsArray)</span>
+<span class="pc bpc" id="L22" title="1 of 2 branches missed.">        for(HTMLDocument document: docsAsArray)</span>
         {
             //need images to be itterable 
            // double sizeMB = document.getSizeOfImages();
            // content.add(String.format(&quot;%7.2f %s\n&quot;, sizeMB, document.getPath()));
             //totalSizeMB += sizeMB;
-<span class="fc" id="L28">            content.add(document.getPath());</span>
+<span class="nc" id="L28">            content.add(document.getPath());</span>
         }
         //content.add(String.format(&quot;%7.2f Total (MBs)\n&quot;, totalSizeMB));
         //super.writeReport(content);

@@ -1,31 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DocumentParser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.WebsiteAnalysis</a> &gt; <span class="el_source">DocumentParser.java</span></div><h1>DocumentParser.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.WebsiteAnalysis;
 
 import java.util.List;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
+import org.jsoup.Jsoup;
 import org.jsoup.nodes.*;
+import org.jsoup.select.Elements;
 
 
 
 public class DocumentParser {
-    private String absolutePath;
+    
+    private Path siteRoot;
+    private String path;
+    private String relativePath;
+    private List&lt;String&gt; URLs;
+    private Document document;
 
+<span class="fc" id="L23">    public DocumentParser(Path siteRoot, String path, List&lt;String&gt; URLs) {</span>
+<span class="fc" id="L24">        this.siteRoot = siteRoot;</span>
+<span class="fc" id="L25">        this.path = path;</span>
+<span class="fc" id="L26">        this.URLs = URLs;</span>
+<span class="fc" id="L27">        this.relativePath = mapURLtoPath(siteRoot, path.toString());</span>
+
+<span class="fc" id="L29">        Path filePath = Path.of(path).toAbsolutePath();</span>
+
+        try {
+<span class="fc" id="L32">            document = Jsoup.parse(Files.readString(filePath));</span>
+<span class="nc" id="L33">        } catch (Exception e) {</span>
+            //TODO: handle exception
+<span class="nc" id="L35">            e.printStackTrace();</span>
+<span class="fc" id="L36">        }</span>
+<span class="fc" id="L37">    }</span>
     /**
-     * Instantiates a new DocumentParser to extract information about a locally-saved HTML file.
-     * @param absolutePath The full local file path to a file containing HTML content for parsing.
+     * Parse a file and return a fully built HTMLDocument object containing the data collected.
+     * @return HTMLDocument The HTMLDocument data object.
      */
-<span class="nc" id="L17">    DocumentParser(String absolutePath) {</span>
-<span class="nc" id="L18">        this.absolutePath = absolutePath;</span>
-<span class="nc" id="L19">    }</span>
+    public HTMLDocument parse() {
+        
+        //implement calls to various parsing functions
+<span class="fc" id="L45">        HTMLDocument theDocument = new HTMLDocument</span>
+            .DocumentBuilder(relativePath)
+<span class="fc" id="L47">            .links(parseLinks())</span>
+<span class="fc" id="L48">            .images(parseImages())</span>
+<span class="fc" id="L49">            .scripts(parseJS())</span>
+<span class="fc" id="L50">            .stylesheets(parseCSS())</span>
+<span class="fc" id="L51">            .build();</span>
+
+<span class="fc" id="L53">        return theDocument;</span>
+    }
     
     /**
      * Direct DocumentParser to analyze the local page's links.
      * @return A List of Anchor objects containing the information collected.
      */
     public List&lt;Anchor&gt; parseLinks() {
-<span class="nc" id="L26">        ArrayList&lt;Anchor&gt; theLinks = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L61">        ArrayList&lt;Anchor&gt; theLinks = new ArrayList&lt;&gt;();</span>
 
-<span class="nc" id="L28">        return theLinks;</span>
+<span class="fc" id="L63">        Elements rawLinks = document.select(&quot;a[href]&quot;);</span>
+
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        for(Element link : rawLinks) {</span>
+<span class="fc" id="L66">            String href = link.attr(&quot;abs:href&quot;);</span>
+<span class="fc" id="L67">            Classification classification = classifyLink(href);</span>
+<span class="fc" id="L68">            LinkTargetType targetType = getTargetType(href);</span>
+<span class="fc" id="L69">            Anchor toAdd = new Anchor(href, classification, targetType);</span>
+<span class="fc" id="L70">            theLinks.add(toAdd);</span>
+<span class="fc" id="L71">        }</span>
+
+<span class="fc" id="L73">        return theLinks;</span>
+    }
+
+    public String mapURLtoPath(Path siteRoot, String absolutePath) {
+        String[] splitPath;
+<span class="fc" id="L78">        String target = siteRoot.getFileName().toString();</span>
+<span class="fc" id="L79">        target = &quot;/&quot; + target + &quot;/&quot;;</span>
+<span class="fc" id="L80">        splitPath = absolutePath.split(target);</span>
+<span class="fc" id="L81">        return splitPath[1];</span>
     }
 
     /**
@@ -33,9 +86,9 @@ public class DocumentParser {
      * @return A list of Image objects containing the information collected.
      */
     public List&lt;Image&gt; parseImages() {
-<span class="nc" id="L36">        ArrayList&lt;Image&gt; theImages = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L89">        ArrayList&lt;Image&gt; theImages = new ArrayList&lt;&gt;();</span>
 
-<span class="nc" id="L38">        return theImages;</span>
+<span class="fc" id="L91">        return theImages;</span>
     }
 
     /**
@@ -43,9 +96,9 @@ public class DocumentParser {
      * @return A list of Script objects containing the information collected.
      */
     public List&lt;Script&gt; parseJS() {
-<span class="nc" id="L46">        ArrayList&lt;Script&gt; theJS = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L99">        ArrayList&lt;Script&gt; theJS = new ArrayList&lt;&gt;();</span>
 
-<span class="nc" id="L48">        return theJS;    </span>
+<span class="fc" id="L101">        return theJS;    </span>
     }
 
     /**
@@ -53,9 +106,33 @@ public class DocumentParser {
      * @return A list of Stylesheet objects containing the information collected.
      */
     public List&lt;Stylesheet&gt; parseCSS() {
-<span class="nc" id="L56">        ArrayList&lt;Stylesheet&gt; theCSS = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L109">        ArrayList&lt;Stylesheet&gt; theCSS = new ArrayList&lt;&gt;();</span>
 
-<span class="nc" id="L58">        return theCSS;</span>
+<span class="fc" id="L111">        return theCSS;</span>
+    }
+
+    /**
+     * TODO: Temporarily public for testing.
+     */
+    public Classification classifyLink(String href) {
+<span class="fc" id="L118">        String prefix = href.replace(relativePath, &quot;&quot;);</span>
+<span class="fc" id="L119">        String exactMatch = prefix + relativePath;</span>
+<span class="fc" id="L120">        Classification theLinkType = Classification.EXTERNAL;</span>
+
+<span class="fc bfc" id="L122" title="All 2 branches covered.">        for (String url : URLs) {</span>
+<span class="pc bpc" id="L123" title="1 of 2 branches missed.">            if((url.startsWith(exactMatch))) {</span>
+<span class="nc" id="L124">                return Classification.INTRAPAGE;</span>
+<span class="fc bfc" id="L125" title="All 2 branches covered.">            } else if(url.startsWith(prefix)) {</span>
+<span class="fc" id="L126">                theLinkType = Classification.INTERNAL;</span>
+            } 
+<span class="fc" id="L128">        }</span>
+<span class="fc" id="L129">        return theLinkType;</span>
+    }
+
+    private LinkTargetType getTargetType(String href) {
+        
+        
+<span class="fc" id="L135">        return null;</span>
     }
 
 }
