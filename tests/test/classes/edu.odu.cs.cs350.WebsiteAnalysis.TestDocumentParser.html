@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - TestPlaintextWriter</title>
+<title>Test results - TestDocumentParser</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>TestPlaintextWriter</h1>
+<h1>TestDocumentParser</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/edu.odu.cs.cs350.WebsiteAnalysis.html">edu.odu.cs.cs350.WebsiteAnalysis</a> &gt; TestPlaintextWriter</div>
+<a href="../packages/edu.odu.cs.cs350.WebsiteAnalysis.html">edu.odu.cs.cs350.WebsiteAnalysis</a> &gt; TestDocumentParser</div>
 <div id="summary">
 <table>
 <tr>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.019s</div>
+<div class="counter">0.034s</div>
 <p>duration</p>
 </div>
 </td>
@@ -78,8 +78,8 @@
 </tr>
 </thead>
 <tr>
-<td class="success">testContentGeneration()</td>
-<td class="success">0.019s</td>
+<td class="success">testURLReconstruction()</td>
+<td class="success">0.034s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,23 +87,18 @@
 <div id="tab1" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>java.nio.file.NoSuchFileException: /home/jshelor/odu/cs350/website-analysis/app/url
+<pre>java.nio.file.NoSuchFileException: /home/user/site-root-name/page/path/index.html
 	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
 	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
 	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
-	at java.base/sun.nio.fs.UnixFileAttributeViews$Basic.readAttributes(UnixFileAttributeViews.java:55)
-	at java.base/sun.nio.fs.UnixFileSystemProvider.readAttributes(UnixFileSystemProvider.java:148)
-	at java.base/sun.nio.fs.LinuxFileSystemProvider.readAttributes(LinuxFileSystemProvider.java:99)
-	at java.base/java.nio.file.Files.readAttributes(Files.java:1851)
-	at java.base/java.nio.file.FileTreeWalker.getAttributes(FileTreeWalker.java:220)
-	at java.base/java.nio.file.FileTreeWalker.visit(FileTreeWalker.java:277)
-	at java.base/java.nio.file.FileTreeWalker.walk(FileTreeWalker.java:323)
-	at java.base/java.nio.file.FileTreeIterator.&lt;init&gt;(FileTreeIterator.java:71)
-	at java.base/java.nio.file.Files.walk(Files.java:3918)
-	at java.base/java.nio.file.Files.walk(Files.java:3973)
-	at edu.odu.cs.cs350.WebsiteAnalysis.Website$WebsiteWalker.identifyPages(Website.java:157)
-	at edu.odu.cs.cs350.WebsiteAnalysis.TestPlaintextWriter.getTestWebsite(TestPlaintextWriter.java:35)
-	at edu.odu.cs.cs350.WebsiteAnalysis.TestPlaintextWriter.testContentGeneration(TestPlaintextWriter.java:44)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:218)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:380)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:432)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3288)
+	at java.base/java.nio.file.Files.readString(Files.java:3366)
+	at java.base/java.nio.file.Files.readString(Files.java:3325)
+	at edu.odu.cs.cs350.WebsiteAnalysis.DocumentParser.&lt;init&gt;(DocumentParser.java:33)
+	at edu.odu.cs.cs350.WebsiteAnalysis.TestDocumentParser.testURLReconstruction(TestDocumentParser.java:25)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
