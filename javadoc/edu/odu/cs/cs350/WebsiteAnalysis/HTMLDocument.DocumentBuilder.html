@@ -95,8 +95,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String)" class="member-name-link">DocumentBuilder</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;path)</code></div>
 <div class="col-last even-row-color">
-<div class="block">DocumentBuilder constructor taking the Path to the local site root directory 
- and a validated, fully-qualified URL corresponding to a local page.</div>
+<div class="block">DocumentBuilder constructor.</div>
 </div>
 </div>
 </section>
@@ -150,14 +149,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;(java.lang.String)">
 <h3>DocumentBuilder</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DocumentBuilder</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;path)</span></div>
-<div class="block">DocumentBuilder constructor taking the Path to the local site root directory 
- and a validated, fully-qualified URL corresponding to a local page.
- TODO: Refactor to accept just the relative path name, with mapURLtoPath refactored
- into DocumentParser, which should call this class.</div>
+<div class="block">DocumentBuilder constructor.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>siteRoot</code> - A String containing the path to the local site root directory.</dd>
-<dd><code>URL</code> - The full URL of the local page.</dd>
+<dd><code>path</code> - A String representing the document file path, relative to site root.</dd>
 </dl>
 </section>
 </li>

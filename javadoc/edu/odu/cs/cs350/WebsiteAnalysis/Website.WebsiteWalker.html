@@ -115,16 +115,18 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Website.WebsiteWalker.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Website.WebsiteWalker</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#analyzeLocalPages()" class="member-name-link">analyzeLocalPages</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Parse the local pages corresponding to the valid URLs.</div>
+<div class="block">Analyze all HTML files in the queue for parsing.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Website.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Website</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#build()" class="member-name-link">build</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Build the Website data object.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Website.WebsiteWalker.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Website.WebsiteWalker</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#identifyPages()" class="member-name-link">identifyPages</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Identify the valid URLs that correspond to local pages, adding them to a queue for
- document parser.</div>
+<div class="block">Identify the files in the directory that contain HTML, adding them to a queue for
+ parsing.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Website.WebsiteWalker.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Website.WebsiteWalker</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#URLs(java.util.List)" class="member-name-link">URLs</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;URLs)</code></div>
@@ -185,9 +187,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="identifyPages()">
 <h3>identifyPages</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Website.WebsiteWalker.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Website.WebsiteWalker</a></span>&nbsp;<span class="element-name">identifyPages</span>()</div>
-<div class="block">Identify the valid URLs that correspond to local pages, adding them to a queue for
- document parser. Conducts a naive check for the presence of the site root directory
- in the URL String.</div>
+<div class="block">Identify the files in the directory that contain HTML, adding them to a queue for
+ parsing.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>The WebsiteWalker object for chaining during build.</dd>
@@ -200,7 +201,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="analyzeLocalPages()">
 <h3>analyzeLocalPages</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Website.WebsiteWalker.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Website.WebsiteWalker</a></span>&nbsp;<span class="element-name">analyzeLocalPages</span>()</div>
-<div class="block">Parse the local pages corresponding to the valid URLs. Populates a list of 
+<div class="block">Analyze all HTML files in the queue for parsing. Populates a list of 
  HTMLDocument objects containing data collected during analysis.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -212,6 +213,12 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="build()">
 <h3>build</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Website.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Website</a></span>&nbsp;<span class="element-name">build</span>()</div>
+<div class="block">Build the Website data object.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>The Website, containing a list of parsed HTMLDocument objects corresponding
+ to local pages.</dd>
+</dl>
 </section>
 </li>
 </ul>

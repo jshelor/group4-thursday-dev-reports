@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HTMLDocument.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.WebsiteAnalysis</a> &gt; <span class="el_source">HTMLDocument.java</span></div><h1>HTMLDocument.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.WebsiteAnalysis;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 public class HTMLDocument implements Comparable&lt;HTMLDocument&gt; { 
@@ -23,16 +21,16 @@ public class HTMLDocument implements Comparable&lt;HTMLDocument&gt; {
 
     /**
      * Used by the DocumentBuilder to construct an HTMLDocument containing data collected during analysis. 
-     * @param documentParser The DocumentParser builder object.
+     * @param builder The DocumentBuilder object used to instantiate the HTMLDocument.
      */
-<span class="fc" id="L28">    private HTMLDocument(DocumentBuilder builder) {</span>
-<span class="fc" id="L29">        this.path = builder.path;</span>
+<span class="fc" id="L26">    private HTMLDocument(DocumentBuilder builder) {</span>
+<span class="fc" id="L27">        this.path = builder.path;</span>
         //this.absolutePath = builder.absolutePath;
         //this.links = documentParser.links;
         //this.images = documentParser.images;
         //this.scripts = documentParser.scripts;
         //this.stylesheets = documentParser.stylesheets;
-<span class="fc" id="L35">    }</span>
+<span class="fc" id="L33">    }</span>
 
     /**
      * Get the relative path to the page in String format.
@@ -40,7 +38,7 @@ public class HTMLDocument implements Comparable&lt;HTMLDocument&gt; {
      */
     public String getPath() {
         
-<span class="fc" id="L43">        return this.path;</span>
+<span class="fc" id="L41">        return this.path;</span>
     }
 
     /**
@@ -49,7 +47,7 @@ public class HTMLDocument implements Comparable&lt;HTMLDocument&gt; {
      */
     public String getAbsolutePath() {
 
-<span class="nc" id="L52">        return this.absolutePath;</span>
+<span class="nc" id="L50">        return this.absolutePath;</span>
     }
 
     /**
@@ -58,7 +56,7 @@ public class HTMLDocument implements Comparable&lt;HTMLDocument&gt; {
      */
     public final List&lt;Stylesheet&gt; getStylesheets() {
         
-<span class="nc" id="L61">        return this.stylesheets;</span>
+<span class="nc" id="L59">        return this.stylesheets;</span>
     }
 
     /**
@@ -67,7 +65,7 @@ public class HTMLDocument implements Comparable&lt;HTMLDocument&gt; {
      */
     public final List&lt;Script&gt; getScripts() {
 
-<span class="nc" id="L70">        return this.scripts;</span>
+<span class="nc" id="L68">        return this.scripts;</span>
     }
 
     /**
@@ -76,15 +74,16 @@ public class HTMLDocument implements Comparable&lt;HTMLDocument&gt; {
      */
     public final List&lt;Anchor&gt; getLinks() {
 
-<span class="nc" id="L79">        return this.links;</span>
+<span class="nc" id="L77">        return this.links;</span>
     }
 
     /**
      * Get a list of the HTMLDocument's images.
+     * @return A list of Image objects.
      */
     public final List&lt;Image&gt; getImages() {
 
-<span class="nc" id="L87">        return this.images;</span>
+<span class="nc" id="L86">        return this.images;</span>
     }
 
     /**
@@ -93,7 +92,7 @@ public class HTMLDocument implements Comparable&lt;HTMLDocument&gt; {
      */
     public boolean containsStylesheet(Stylesheet stylesheet) {
 
-<span class="nc" id="L96">         return this.stylesheets.contains(stylesheet);</span>
+<span class="nc" id="L95">         return this.stylesheets.contains(stylesheet);</span>
     }
 
     /**
@@ -102,7 +101,7 @@ public class HTMLDocument implements Comparable&lt;HTMLDocument&gt; {
      */
     public boolean containsScript(Script script) {
 
-<span class="nc" id="L105">        return this.scripts.contains(script);</span>
+<span class="nc" id="L104">        return this.scripts.contains(script);</span>
     }
 
     /**
@@ -111,7 +110,7 @@ public class HTMLDocument implements Comparable&lt;HTMLDocument&gt; {
      */
     public boolean containsLink(Anchor link) {
 
-<span class="nc" id="L114">        return this.links.contains(link);</span>
+<span class="nc" id="L113">        return this.links.contains(link);</span>
     }
 
     /**
@@ -120,7 +119,7 @@ public class HTMLDocument implements Comparable&lt;HTMLDocument&gt; {
      */
     public boolean containsImage(Image image) {
 
-<span class="nc" id="L123">        return this.images.contains(image);</span>
+<span class="nc" id="L122">        return this.images.contains(image);</span>
     }
 
     /**
@@ -128,7 +127,7 @@ public class HTMLDocument implements Comparable&lt;HTMLDocument&gt; {
      * be handled through ReportWriter and Resource subclasses.
      */
     public String toString() {
-<span class="fc" id="L131">        return this.getPath();</span>
+<span class="fc" id="L130">        return this.getPath();</span>
     }
 
     /**
@@ -137,29 +136,29 @@ public class HTMLDocument implements Comparable&lt;HTMLDocument&gt; {
      */
     @Override
     public int compareTo(HTMLDocument other) {
-<span class="nc" id="L140">        return this.path.compareTo(other.getPath());</span>
+<span class="nc" id="L139">        return this.path.compareTo(other.getPath());</span>
     }
 
     /**
-     * Overried of equals() for thorough testing of HTMLDocument instances.
+     * Override of equals() for thorough testing of HTMLDocument instances.
      * TODO: Only partially implemented for checking path
      */
     @Override
     public boolean equals(Object rhs) {
-<span class="pc bpc" id="L149" title="1 of 2 branches missed.">        if (rhs == this) {</span>
-<span class="nc" id="L150">            return true;</span>
+<span class="pc bpc" id="L148" title="1 of 2 branches missed.">        if (rhs == this) {</span>
+<span class="nc" id="L149">            return true;</span>
         }
-<span class="pc bpc" id="L152" title="1 of 2 branches missed.">        if (!(rhs instanceof HTMLDocument)) {</span>
-<span class="nc" id="L153">            return false;</span>
+<span class="pc bpc" id="L151" title="1 of 2 branches missed.">        if (!(rhs instanceof HTMLDocument)) {</span>
+<span class="nc" id="L152">            return false;</span>
         }
 
-<span class="fc" id="L156">        HTMLDocument other = (HTMLDocument) rhs; </span>
+<span class="fc" id="L155">        HTMLDocument other = (HTMLDocument) rhs; </span>
 
         //TODO: partial implementation of equals method -- make more robust after Resource classes implemented
-<span class="fc bfc" id="L159" title="All 2 branches covered.">        if (this.path.equals(other.getPath())) {</span>
-<span class="fc" id="L160">            return true;</span>
+<span class="fc bfc" id="L158" title="All 2 branches covered.">        if (this.path.equals(other.getPath())) {</span>
+<span class="fc" id="L159">            return true;</span>
         } else {
-<span class="fc" id="L162">            return false;</span>
+<span class="fc" id="L161">            return false;</span>
         }
         /* return (this.links == other.getLinks()
             &amp;&amp; this.scripts == other.getScripts()
@@ -181,44 +180,44 @@ public class HTMLDocument implements Comparable&lt;HTMLDocument&gt; {
         private String path;
 
         /**
-         * DocumentBuilder constructor taking the Path to the local site root directory 
-         * and a validated, fully-qualified URL corresponding to a local page.
-         * TODO: Refactor to accept just the relative path name, with mapURLtoPath refactored
-         * into DocumentParser, which should call this class.
-         * @param siteRoot A String containing the path to the local site root directory.
-         * @param URL The full URL of the local page.
+         * DocumentBuilder constructor.
+         * @param path A String representing the document file path, relative to site root.
          */
-<span class="fc" id="L191">        public DocumentBuilder(String path) {</span>
-<span class="fc" id="L192">            this.path = path;</span>
-<span class="fc" id="L193">        }</span>
+<span class="fc" id="L186">        public DocumentBuilder(String path) {</span>
+<span class="fc" id="L187">            this.path = path;</span>
+<span class="fc" id="L188">        }</span>
 
         public DocumentBuilder links(List&lt;Anchor&gt; links) {
+<span class="fc" id="L191">            this.links = links;</span>
 
-<span class="fc" id="L197">            return this;</span>
+<span class="fc" id="L193">            return this;</span>
         }
 
         public DocumentBuilder images(List&lt;Image&gt; images) {
+<span class="fc" id="L197">            this.images = images;</span>
 
-<span class="fc" id="L202">            return this;</span>
+<span class="fc" id="L199">            return this;</span>
         }
 
         public DocumentBuilder scripts(List&lt;Script&gt; scripts) {
+<span class="fc" id="L203">            this.scripts = scripts;</span>
 
-<span class="fc" id="L207">            return this;</span>
+<span class="fc" id="L205">            return this;</span>
         }
 
         public DocumentBuilder stylesheets(List&lt;Stylesheet&gt; stylesheets) {
+<span class="fc" id="L209">            this.stylesheets = stylesheets;</span>
 
-<span class="fc" id="L212">            return this;</span>
+<span class="fc" id="L211">            return this;</span>
         }
 
         /**
          * Finalize the build of the HTMLDocument object.
          */
         public HTMLDocument build() {
-<span class="fc" id="L219">            HTMLDocument document = new HTMLDocument(this);</span>
-<span class="fc" id="L220">            validateHTMLDocument(document);</span>
-<span class="fc" id="L221">            return document;</span>
+<span class="fc" id="L218">            HTMLDocument document = new HTMLDocument(this);</span>
+<span class="fc" id="L219">            validateHTMLDocument(document);</span>
+<span class="fc" id="L220">            return document;</span>
         }
 
 
@@ -228,16 +227,16 @@ public class HTMLDocument implements Comparable&lt;HTMLDocument&gt; {
          */
         private void validateHTMLDocument(HTMLDocument document) {
 
-<span class="fc" id="L231">        }</span>
+<span class="fc" id="L230">        }</span>
     }
 
     public double getSizeOfImages() {
-<span class="nc" id="L235">        double sizeMB = 0.0;</span>
-<span class="nc bnc" id="L236" title="All 2 branches missed.">        for(Image image: getImages())</span>
+<span class="nc" id="L234">        double sizeMB = 0.0;</span>
+<span class="nc bnc" id="L235" title="All 2 branches missed.">        for(Image image: getImages())</span>
         {
-<span class="nc" id="L238">            sizeMB += image.fileSize();</span>
-<span class="nc" id="L239">        }</span>
-<span class="nc" id="L240">        return sizeMB;</span>
+<span class="nc" id="L237">            sizeMB += image.fileSize();</span>
+<span class="nc" id="L238">        }</span>
+<span class="nc" id="L239">        return sizeMB;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -90,7 +90,9 @@ loadScripts(document, 'script');</script>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.nio.file.Path,java.lang.String,java.util.List)" class="member-name-link">DocumentParser</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;siteRoot,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;absPath,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;URLs)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Instantiate a DocumentParser object.</div>
+</div>
 </div>
 </section>
 </li>
@@ -108,7 +110,8 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Classification.html" title="enum class in edu.odu.cs.cs350.WebsiteAnalysis">Classification</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#classifyLink(java.lang.String)" class="member-name-link">classifyLink</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;href)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">TODO: Possibly make private after testing.</div>
+<div class="block">Classify a URL encountered during parsing by cross-referencing against a list
+ of URLs known to correspond to the file structure of the site under analysis.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#mapURLtoPath(java.nio.file.Path,java.lang.String)" class="member-name-link">mapURLtoPath</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;siteRoot,
@@ -119,30 +122,10 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Parse a file and return a fully built HTMLDocument object containing the data collected.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Stylesheet.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Stylesheet</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parseCSS()" class="member-name-link">parseCSS</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Direct DocumentParser to analyze the page's stylesheets.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Image.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Image</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parseImages()" class="member-name-link">parseImages</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Direct DocumentParser to analyze the page's images.</div>
-</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Script.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Script</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parseJS()" class="member-name-link">parseJS</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Direct DocumentParser to analyze the page's JavaScript links.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Anchor.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Anchor</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parseLinks()" class="member-name-link">parseLinks</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Direct DocumentParser to analyze the local page's links.</div>
-</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reconstructURL(java.lang.String)" class="member-name-link">reconstructURL</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;href)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">TODO: Possibly make private after testing.</div>
+<div class="block">TODO: Public for unit testing purposes, but not intended to be part of interface.</div>
 </div>
 </div>
 </div>
@@ -167,6 +150,13 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DocumentParser</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;siteRoot,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;absPath,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;URLs)</span></div>
+<div class="block">Instantiate a DocumentParser object.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>siteRoot</code> - The Path to the site root directory.</dd>
+<dd><code>absPath</code> - The file location of the document to be parsed, as a String.</dd>
+<dd><code>URLs</code> - The list of absolute URLs corresponding to all files local to the site root.</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -184,18 +174,7 @@ loadScripts(document, 'script');</script>
 <div class="block">Parse a file and return a fully built HTMLDocument object containing the data collected.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>HTMLDocument The HTMLDocument data object.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="parseLinks()">
-<h3>parseLinks</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Anchor.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Anchor</a>&gt;</span>&nbsp;<span class="element-name">parseLinks</span>()</div>
-<div class="block">Direct DocumentParser to analyze the local page's links.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>A List of Anchor objects containing the information collected.</dd>
+<dd>The HTMLDocument data object.</dd>
 </dl>
 </section>
 </li>
@@ -203,11 +182,12 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="reconstructURL(java.lang.String)">
 <h3>reconstructURL</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">reconstructURL</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;href)</span></div>
-<div class="block">TODO: Possibly make private after testing.</div>
+<div class="block">TODO: Public for unit testing purposes, but not intended to be part of interface.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>href</code> - </dd>
+<dd><code>href</code> - The local relative URL to resolve into an absolute URL.</dd>
 <dt>Returns:</dt>
+<dd>String The absolute URL.</dd>
 </dl>
 </section>
 </li>
@@ -219,43 +199,17 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="parseImages()">
-<h3>parseImages</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Image.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Image</a>&gt;</span>&nbsp;<span class="element-name">parseImages</span>()</div>
-<div class="block">Direct DocumentParser to analyze the page's images.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>A list of Image objects containing the information collected.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="parseJS()">
-<h3>parseJS</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Script.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Script</a>&gt;</span>&nbsp;<span class="element-name">parseJS</span>()</div>
-<div class="block">Direct DocumentParser to analyze the page's JavaScript links.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>A list of Script objects containing the information collected.</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="parseCSS()">
-<h3>parseCSS</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Stylesheet.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Stylesheet</a>&gt;</span>&nbsp;<span class="element-name">parseCSS</span>()</div>
-<div class="block">Direct DocumentParser to analyze the page's stylesheets.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>A list of Stylesheet objects containing the information collected.</dd>
-</dl>
-</section>
-</li>
-<li>
 <section class="detail" id="classifyLink(java.lang.String)">
 <h3>classifyLink</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Classification.html" title="enum class in edu.odu.cs.cs350.WebsiteAnalysis">Classification</a></span>&nbsp;<span class="element-name">classifyLink</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;href)</span></div>
-<div class="block">TODO: Possibly make private after testing.</div>
+<div class="block">Classify a URL encountered during parsing by cross-referencing against a list
+ of URLs known to correspond to the file structure of the site under analysis.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>href</code> - The URL to classify.</dd>
+<dt>Returns:</dt>
+<dd>Classification The classification.</dd>
+</dl>
 </section>
 </li>
 </ul>

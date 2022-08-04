@@ -53,7 +53,7 @@ loadScripts(document, 'script');</script>
 <dl class="index">
 <dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/Website.WebsiteWalker.html#analyzeLocalPages()" class="member-name-link">analyzeLocalPages()</a> - Method in class edu.odu.cs.cs350.WebsiteAnalysis.<a href="edu/odu/cs/cs350/WebsiteAnalysis/Website.WebsiteWalker.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Website.WebsiteWalker</a></dt>
 <dd>
-<div class="block">Parse the local pages corresponding to the valid URLs.</div>
+<div class="block">Analyze all HTML files in the queue for parsing.</div>
 </dd>
 <dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/Anchor.html" class="type-name-link" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Anchor</a> - Class in <a href="edu/odu/cs/cs350/WebsiteAnalysis/package-summary.html">edu.odu.cs.cs350.WebsiteAnalysis</a></dt>
 <dd>&nbsp;</dd>
@@ -69,7 +69,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Finalize the build of the HTMLDocument object.</div>
 </dd>
 <dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/Website.WebsiteWalker.html#build()" class="member-name-link">build()</a> - Method in class edu.odu.cs.cs350.WebsiteAnalysis.<a href="edu/odu/cs/cs350/WebsiteAnalysis/Website.WebsiteWalker.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Website.WebsiteWalker</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Build the Website data object.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:C">C</h2>
 <dl class="index">
@@ -77,7 +79,8 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/DocumentParser.html#classifyLink(java.lang.String)" class="member-name-link">classifyLink(String)</a> - Method in class edu.odu.cs.cs350.WebsiteAnalysis.<a href="edu/odu/cs/cs350/WebsiteAnalysis/DocumentParser.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">DocumentParser</a></dt>
 <dd>
-<div class="block">TODO: Possibly make private after testing.</div>
+<div class="block">Classify a URL encountered during parsing by cross-referencing against a list
+ of URLs known to correspond to the file structure of the site under analysis.</div>
 </dd>
 <dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/HTMLDocument.html#compareTo(edu.odu.cs.cs350.WebsiteAnalysis.HTMLDocument)" class="member-name-link">compareTo(HTMLDocument)</a> - Method in class edu.odu.cs.cs350.WebsiteAnalysis.<a href="edu/odu/cs/cs350/WebsiteAnalysis/HTMLDocument.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">HTMLDocument</a></dt>
 <dd>
@@ -114,13 +117,14 @@ loadScripts(document, 'script');</script>
 <dl class="index">
 <dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/HTMLDocument.DocumentBuilder.html#%3Cinit%3E(java.lang.String)" class="member-name-link">DocumentBuilder(String)</a> - Constructor for class edu.odu.cs.cs350.WebsiteAnalysis.<a href="edu/odu/cs/cs350/WebsiteAnalysis/HTMLDocument.DocumentBuilder.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">HTMLDocument.DocumentBuilder</a></dt>
 <dd>
-<div class="block">DocumentBuilder constructor taking the Path to the local site root directory 
- and a validated, fully-qualified URL corresponding to a local page.</div>
+<div class="block">DocumentBuilder constructor.</div>
 </dd>
 <dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/DocumentParser.html" class="type-name-link" title="class in edu.odu.cs.cs350.WebsiteAnalysis">DocumentParser</a> - Class in <a href="edu/odu/cs/cs350/WebsiteAnalysis/package-summary.html">edu.odu.cs.cs350.WebsiteAnalysis</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/DocumentParser.html#%3Cinit%3E(java.nio.file.Path,java.lang.String,java.util.List)" class="member-name-link">DocumentParser(Path, String, List&lt;String&gt;)</a> - Constructor for class edu.odu.cs.cs350.WebsiteAnalysis.<a href="edu/odu/cs/cs350/WebsiteAnalysis/DocumentParser.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">DocumentParser</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Instantiate a DocumentParser object.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:E">E</h2>
 <dl class="index">
@@ -128,7 +132,7 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/HTMLDocument.html#equals(java.lang.Object)" class="member-name-link">equals(Object)</a> - Method in class edu.odu.cs.cs350.WebsiteAnalysis.<a href="edu/odu/cs/cs350/WebsiteAnalysis/HTMLDocument.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">HTMLDocument</a></dt>
 <dd>
-<div class="block">Overried of equals() for thorough testing of HTMLDocument instances.</div>
+<div class="block">Override of equals() for thorough testing of HTMLDocument instances.</div>
 </dd>
 <dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/ExcelWriter.html" class="type-name-link" title="class in edu.odu.cs.cs350.WebsiteAnalysis">ExcelWriter</a> - Class in <a href="edu/odu/cs/cs350/WebsiteAnalysis/package-summary.html">edu.odu.cs.cs350.WebsiteAnalysis</a></dt>
 <dd>&nbsp;</dd>
@@ -214,8 +218,8 @@ loadScripts(document, 'script');</script>
 <dl class="index">
 <dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/Website.WebsiteWalker.html#identifyPages()" class="member-name-link">identifyPages()</a> - Method in class edu.odu.cs.cs350.WebsiteAnalysis.<a href="edu/odu/cs/cs350/WebsiteAnalysis/Website.WebsiteWalker.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Website.WebsiteWalker</a></dt>
 <dd>
-<div class="block">Identify the valid URLs that correspond to local pages, adding them to a queue for
- document parser.</div>
+<div class="block">Identify the files in the directory that contain HTML, adding them to a queue for
+ parsing.</div>
 </dd>
 <dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/Image.html" class="type-name-link" title="class in edu.odu.cs.cs350.WebsiteAnalysis">Image</a> - Class in <a href="edu/odu/cs/cs350/WebsiteAnalysis/package-summary.html">edu.odu.cs.cs350.WebsiteAnalysis</a></dt>
 <dd>&nbsp;</dd>
@@ -258,22 +262,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Parse a file and return a fully built HTMLDocument object containing the data collected.</div>
 </dd>
-<dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/DocumentParser.html#parseCSS()" class="member-name-link">parseCSS()</a> - Method in class edu.odu.cs.cs350.WebsiteAnalysis.<a href="edu/odu/cs/cs350/WebsiteAnalysis/DocumentParser.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">DocumentParser</a></dt>
-<dd>
-<div class="block">Direct DocumentParser to analyze the page's stylesheets.</div>
-</dd>
-<dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/DocumentParser.html#parseImages()" class="member-name-link">parseImages()</a> - Method in class edu.odu.cs.cs350.WebsiteAnalysis.<a href="edu/odu/cs/cs350/WebsiteAnalysis/DocumentParser.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">DocumentParser</a></dt>
-<dd>
-<div class="block">Direct DocumentParser to analyze the page's images.</div>
-</dd>
-<dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/DocumentParser.html#parseJS()" class="member-name-link">parseJS()</a> - Method in class edu.odu.cs.cs350.WebsiteAnalysis.<a href="edu/odu/cs/cs350/WebsiteAnalysis/DocumentParser.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">DocumentParser</a></dt>
-<dd>
-<div class="block">Direct DocumentParser to analyze the page's JavaScript links.</div>
-</dd>
-<dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/DocumentParser.html#parseLinks()" class="member-name-link">parseLinks()</a> - Method in class edu.odu.cs.cs350.WebsiteAnalysis.<a href="edu/odu/cs/cs350/WebsiteAnalysis/DocumentParser.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">DocumentParser</a></dt>
-<dd>
-<div class="block">Direct DocumentParser to analyze the local page's links.</div>
-</dd>
 <dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/PlaintextWriter.html" class="type-name-link" title="class in edu.odu.cs.cs350.WebsiteAnalysis">PlaintextWriter</a> - Class in <a href="edu/odu/cs/cs350/WebsiteAnalysis/package-summary.html">edu.odu.cs.cs350.WebsiteAnalysis</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/PlaintextWriter.html#%3Cinit%3E(edu.odu.cs.cs350.WebsiteAnalysis.Website)" class="member-name-link">PlaintextWriter(Website)</a> - Constructor for class edu.odu.cs.cs350.WebsiteAnalysis.<a href="edu/odu/cs/cs350/WebsiteAnalysis/PlaintextWriter.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">PlaintextWriter</a></dt>
@@ -283,7 +271,7 @@ loadScripts(document, 'script');</script>
 <dl class="index">
 <dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/DocumentParser.html#reconstructURL(java.lang.String)" class="member-name-link">reconstructURL(String)</a> - Method in class edu.odu.cs.cs350.WebsiteAnalysis.<a href="edu/odu/cs/cs350/WebsiteAnalysis/DocumentParser.html" title="class in edu.odu.cs.cs350.WebsiteAnalysis">DocumentParser</a></dt>
 <dd>
-<div class="block">TODO: Possibly make private after testing.</div>
+<div class="block">TODO: Public for unit testing purposes, but not intended to be part of interface.</div>
 </dd>
 <dt><a href="edu/odu/cs/cs350/WebsiteAnalysis/ReportWriter.html" class="type-name-link" title="class in edu.odu.cs.cs350.WebsiteAnalysis">ReportWriter</a> - Class in <a href="edu/odu/cs/cs350/WebsiteAnalysis/package-summary.html">edu.odu.cs.cs350.WebsiteAnalysis</a></dt>
 <dd>&nbsp;</dd>
