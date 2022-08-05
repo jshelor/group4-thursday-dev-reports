@@ -10,7 +10,7 @@ public class PlaintextWriter extends ReportWriter {
 <span class="fc" id="L10">    super(website, &quot;txt&quot;);</span>
 <span class="fc" id="L11">  }</span>
 
-  public void generateContent(ArrayList&lt;String&gt; content)
+  public ArrayList&lt;String&gt; generateContent()
     {
 <span class="fc" id="L15">        ArrayList&lt;HTMLDocument&gt; documents = (ArrayList&lt;HTMLDocument&gt;) website.getHTMLDocuments();</span>
 <span class="fc" id="L16">        HTMLDocument[] docsAsArray = new HTMLDocument[documents.size()];</span>
@@ -18,19 +18,20 @@ public class PlaintextWriter extends ReportWriter {
 <span class="fc" id="L18">        Comparator&lt;HTMLDocument&gt; byPath = Comparator.comparing(HTMLDocument::getPath);</span>
 <span class="fc" id="L19">        Arrays.sort(docsAsArray, byPath);</span>
         
+<span class="fc" id="L21">        ArrayList&lt;String&gt; content = new ArrayList&lt;String&gt;();</span>
        // double totalSizeMB = 0.0;
-<span class="pc bpc" id="L22" title="1 of 2 branches missed.">        for(HTMLDocument document: docsAsArray)</span>
+<span class="pc bpc" id="L23" title="1 of 2 branches missed.">        for(HTMLDocument document: docsAsArray)</span>
         {
             //need images to be itterable 
            // double sizeMB = document.getSizeOfImages();
            // content.add(String.format(&quot;%7.2f %s\n&quot;, sizeMB, document.getPath()));
             //totalSizeMB += sizeMB;
-<span class="nc" id="L28">            content.add(document.getPath());</span>
+<span class="nc" id="L29">            content.add(document.getPath());</span>
         }
         //content.add(String.format(&quot;%7.2f Total (MBs)\n&quot;, totalSizeMB));
         //super.writeReport(content);
-        
-<span class="fc" id="L33">    }</span>
+<span class="fc" id="L33">        return content;</span>
+    }
     
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

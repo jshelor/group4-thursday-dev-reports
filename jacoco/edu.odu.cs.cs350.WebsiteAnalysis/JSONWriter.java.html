@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JSONWriter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.WebsiteAnalysis</a> &gt; <span class="el_source">JSONWriter.java</span></div><h1>JSONWriter.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.WebsiteAnalysis;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class JSONWriter extends ReportWriter {
+    public JSONWriter(Website website) {
+<span class="fc" id="L8">        super(website, &quot;json&quot;);</span>
+<span class="fc" id="L9">    }</span>
+
+    /*
+     * One entry per page detailing:
+     *    Number of local images
+     *    Number of external images
+     *    Number of scripts referenced
+     *    Number of stylesheets utilized
+     *    Listing of images
+     *    Listing of scripts
+     *    Listing of stylesheets
+     *    Number of intra-page links
+     *    Number of inter-site links
+     *    Number of external links
+     * One entry per image detailing:
+     *    Number of pages on which it is displayed
+     *    Listing of pages on which it is displayed
+     * One entry per archive file detailing
+     *    File size
+     *    Path to resource (relative to local site root)
+     * One entry per video file detailing
+     *    File size
+     *    Path to resource (relative to local site root)
+     * One entry per audio file detailing
+     *    File size
+     *    Path to resource (relative to local site root)
+     * One entry per non-categorized file detailing
+     *    File size
+     *    Path to resource (relative to local site root)
+     */
+    
+/*
+ * { &quot;pages&quot;: [ &lt;page&gt;,... ]
+  &quot;images&quot;: [ &lt;image&gt;,... ]
+ &quot;archive-pages&quot;: [ &lt;archive-page&gt;,... ]
+  &quot;video-files&quot;: [ &lt;video-file&gt;,... ]
+  &quot;audio-files&quot;: [ &lt;audio-file&gt;,... ]
+  &quot;non-categorized-files&quot;: [ &lt;non-categorized-file&gt;,... ]
+}
+
+{ &quot;number-of-local-images&quot;: &lt;n&gt;,
+  &quot;number-of-external-images&quot;: &lt;n&gt;,
+  &quot;number-of-scripts-referenced&quot;: &lt;n&gt;,
+  &quot;number-of-stylesheets-utilized&quot;: &lt;n&gt;,
+  .
+  .
+  .
+}
+*/
+       /*
+     * One entry per page detailing:
+     *    Number of local images
+     *    Number of external images
+     *    Number of scripts referenced
+     *    Number of stylesheets utilized
+     *    Listing of images
+     *    Listing of scripts
+     *    Listing of stylesheets
+     *    Number of intra-page links
+     *    Number of inter-site links
+     *    Number of external links
+     */
+    
+        /*
+
+{ &quot;number-of-local-images&quot;: &lt;n&gt;,
+  &quot;number-of-external-images&quot;: &lt;n&gt;,
+  &quot;number-of-scripts-referenced&quot;: &lt;n&gt;,
+  &quot;number-of-stylesheets-utilized&quot;: &lt;n&gt;,
+  &quot;listingOfImages&quot;: [ &lt;listingOfImage&gt;, ... ], 
+  &quot;listingOfScripts&quot;: [&lt;listingOfScript&gt;, ... ],
+  &quot;listingOfStylesheets&quot;: [&lt;listingOfStylesheet&gt;, ... ],
+  &quot;NumberOfIntraPageLinks&quot;: &lt;n&gt;,
+  &quot;NumberOfInterSiteLinks&quot;: &lt;n&gt;,
+  &quot;NumberOfExternalLinks&quot;: &lt;n&gt;
+}
+*/
+    public ArrayList&lt;String&gt; generateContent()
+    {
+<span class="fc" id="L88">        StringBuilder out = new StringBuilder(&quot;&quot;);</span>
+<span class="fc" id="L89">        out.append(&quot;{\n&quot;);</span>
+<span class="fc" id="L90">        out.append(String.format(&quot;\&quot;numberOfLocalImages\&quot;: %d\n&quot;, website.getNumberOfLocalImages()));</span>
+<span class="fc" id="L91">        out.append(String.format(&quot;\&quot;numberOfExternalImages\&quot;: %d\n&quot;, website.getNumberOfExternalImages()));</span>
+<span class="fc" id="L92">        out.append(String.format(&quot;\&quot;numberOfScriptsReferenced\&quot;: %d\n&quot;, website.getNumberOfScriptsReferenced()));</span>
+<span class="fc" id="L93">        out.append(String.format(&quot;\&quot;numberOfStyleSheetsUtilized\&quot;: %d\n&quot;, website.getNumberOfStyleSheetsUtilized()));</span>
+<span class="fc" id="L94">        out.append(&quot;\&quot;listingOfImages\&quot;: [\n&quot;);</span>
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">        for(HTMLDocument doc : website.getHTMLDocuments())</span>
+        {
+<span class="nc bnc" id="L97" title="All 2 branches missed.">            for(Image image: doc.getImages())</span>
+            {
+<span class="nc" id="L99">                out.append(image.toString() + &quot;\n&quot;);</span>
+<span class="nc" id="L100">            }</span>
+<span class="nc" id="L101">        }</span>
+<span class="fc" id="L102">        out.append(&quot;]\n&quot;);</span>
+        
+<span class="fc" id="L104">        out.append(&quot;\&quot;listingOfScripts\&quot;: [\n&quot;);</span>
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">        for(HTMLDocument doc : website.getHTMLDocuments())</span>
+        {
+<span class="nc bnc" id="L107" title="All 2 branches missed.">            for(Script script: doc.getScripts())</span>
+            {
+<span class="nc" id="L109">                out.append(script.toString() + &quot;\n&quot;);</span>
+<span class="nc" id="L110">            }</span>
+<span class="nc" id="L111">        }</span>
+<span class="fc" id="L112">        out.append(&quot;]\n&quot;);</span>
+<span class="fc" id="L113">        out.append(&quot;\&quot;listingOfStyleSheets\&quot;: [\n&quot;);</span>
+<span class="pc bpc" id="L114" title="1 of 2 branches missed.">        for(HTMLDocument doc : website.getHTMLDocuments())</span>
+        {
+<span class="nc bnc" id="L116" title="All 2 branches missed.">            for(Stylesheet styleSheet: doc.getStylesheets())</span>
+            {
+<span class="nc" id="L118">                out.append(styleSheet.toString() + &quot;\n&quot;);</span>
+<span class="nc" id="L119">            }</span>
+<span class="nc" id="L120">        }</span>
+<span class="fc" id="L121">        out.append(&quot;]\n&quot;);</span>
+<span class="fc" id="L122">        out.append(String.format(&quot;\&quot;numberOfIntraSiteLinks\&quot;: %d\n&quot;, website.getNumberOfIntraSiteLinks()));</span>
+        //out.append(String.format(&quot;\&quot;numberOfInterSiteLinks\&quot;: %d\n&quot;, website.getNumberOfInterSiteLinks()));
+        //out.append(String.format(&quot;\&quot;numberOfExternalLinks\&quot;: %d\n&quot;, website.getNumberOfExternalLinks()));
+<span class="fc" id="L125">        out.append(&quot;}\n&quot;);</span>
+
+<span class="fc" id="L127">        return new ArrayList&lt;String&gt;(Arrays.asList(out.toString().split(&quot;\n&quot;)));</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

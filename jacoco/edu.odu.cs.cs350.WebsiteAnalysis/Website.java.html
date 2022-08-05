@@ -3,6 +3,9 @@
 import java.util.List;
 import java.util.stream.Stream;
 
+import javax.imageio.ImageIO;
+import javax.swing.text.Document;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -23,28 +26,29 @@ public class Website implements Iterable&lt;HTMLDocument&gt; {
      * Used by the WebsiteWalker to construct an instance of a Website.
      * @param websiteWalker The WebsiteWalker object that will build the Website.
      */
-<span class="fc" id="L26">    private Website(WebsiteWalker websiteWalker) {</span>
-<span class="fc" id="L27">        this.siteRoot = websiteWalker.siteRootName;</span>
+<span class="fc" id="L29">    private Website(WebsiteWalker websiteWalker) {</span>
+<span class="fc" id="L30">        this.siteRoot = websiteWalker.siteRootName;</span>
 
-<span class="fc bfc" id="L29" title="All 2 branches covered.">        if(websiteWalker.URLs != null) {</span>
-<span class="fc" id="L30">            this.URLs = new ArrayList&lt;&gt;(websiteWalker.URLs);</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if(websiteWalker.URLs != null) {</span>
+<span class="fc" id="L33">            this.URLs = new ArrayList&lt;&gt;(websiteWalker.URLs);</span>
         } else {
-<span class="fc" id="L32">            this.URLs = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L35">            this.URLs = new ArrayList&lt;&gt;();</span>
         }
 
-<span class="fc bfc" id="L35" title="All 2 branches covered.">        if(websiteWalker.localPages != null) {</span>
-<span class="fc" id="L36">            this.localPages = new ArrayList&lt;HTMLDocument&gt;(websiteWalker.localPages);</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if(websiteWalker.localPages != null) {</span>
+<span class="fc" id="L39">            this.localPages = new ArrayList&lt;HTMLDocument&gt;(websiteWalker.localPages);</span>
         } else {
-<span class="fc" id="L38">            this.localPages = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L41">            this.localPages = new ArrayList&lt;&gt;();</span>
         }
 
-<span class="fc" id="L41">    }</span>
+<span class="fc" id="L44">    }</span>
+    
     /**
      * Get the path to the site root directory.
      * @return The path name as a String.
      */
     public String getSiteRoot() {
-<span class="fc" id="L47">        return siteRoot;</span>
+<span class="fc" id="L51">        return siteRoot;</span>
     }
 
     /**
@@ -53,7 +57,7 @@ public class Website implements Iterable&lt;HTMLDocument&gt; {
      * @return Iterator over the list of local pages
      */
     public Iterator&lt;HTMLDocument&gt; iterator() {
-<span class="nc" id="L56">        return localPages.iterator();</span>
+<span class="nc" id="L60">        return localPages.iterator();</span>
     }
 
     /**
@@ -62,19 +66,85 @@ public class Website implements Iterable&lt;HTMLDocument&gt; {
      * @return An ArrayList of analyzed HTMLDocument objects.
      */
     public ArrayList&lt;HTMLDocument&gt; getHTMLDocuments() {
-<span class="fc" id="L65">        return (ArrayList&lt;HTMLDocument&gt;)this.localPages;</span>
+<span class="fc" id="L69">        return (ArrayList&lt;HTMLDocument&gt;)this.localPages;</span>
     }
-
+    public int getNumberOfLocalImages()
+    {
+<span class="fc" id="L73">        int result = 0;</span>
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">        for(HTMLDocument d: localPages)</span>
+        {
+<span class="nc bnc" id="L76" title="All 2 branches missed.">            for(Image i: d.getImages())</span>
+            {
+<span class="nc bnc" id="L78" title="All 2 branches missed.">                if(i.getLocationType() != Classification.EXTERNAL)</span>
+                {
+<span class="nc" id="L80">                    result ++;</span>
+                }
+<span class="nc" id="L82">            }</span>
+<span class="nc" id="L83">        }</span>
+<span class="fc" id="L84">        return result;</span>
+    }
+    public int getNumberOfExternalImages()
+    {
+<span class="fc" id="L88">        int result = 0;</span>
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">        for(HTMLDocument d: localPages)</span>
+        {
+<span class="nc bnc" id="L91" title="All 2 branches missed.">            for(Image i: d.getImages())</span>
+            {
+<span class="nc bnc" id="L93" title="All 2 branches missed.">                if(i.getLocationType() == Classification.EXTERNAL)</span>
+                {
+<span class="nc" id="L95">                    result ++;</span>
+                }
+<span class="nc" id="L97">            }</span>
+<span class="nc" id="L98">        }</span>
+<span class="fc" id="L99">        return result;</span>
+    }
+    public int getNumberOfScriptsReferenced()
+    {
+<span class="fc" id="L103">        int result = 0;</span>
+<span class="pc bpc" id="L104" title="1 of 2 branches missed.">        for(HTMLDocument d: localPages)</span>
+        {
+<span class="nc bnc" id="L106" title="All 2 branches missed.">            for(Script s: d.getScripts())</span>
+            {
+<span class="nc" id="L108">                    result ++;</span>
+<span class="nc" id="L109">            }</span>
+<span class="nc" id="L110">        }</span>
+<span class="fc" id="L111">        return result;</span>
+    }
+    public int getNumberOfStyleSheetsUtilized()
+    {
+<span class="fc" id="L115">        int result = 0;</span>
+<span class="pc bpc" id="L116" title="1 of 2 branches missed.">        for(HTMLDocument d: localPages)</span>
+        {
+<span class="nc bnc" id="L118" title="All 2 branches missed.">            for(Stylesheet s: d.getStylesheets())</span>
+            {
+<span class="nc" id="L120">                    result ++;</span>
+<span class="nc" id="L121">            }</span>
+<span class="nc" id="L122">        }</span>
+<span class="fc" id="L123">        return result;</span>
+    }
+    public int getNumberOfIntraSiteLinks()
+    {
+<span class="fc" id="L127">        int result = 0;</span>
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">        for(HTMLDocument d: localPages)</span>
+        {
+<span class="nc bnc" id="L130" title="All 2 branches missed.">            for(Anchor a: d.getLinks())</span>
+            {
+       // differntiate between intrapage and interpage and externalsite links             if(a.resou)
+<span class="nc" id="L133">                result++;</span>
+<span class="nc" id="L134">            }</span>
+<span class="nc" id="L135">        }</span>
+<span class="fc" id="L136">        return result;</span>
+    }
     /**
      * Helper/wrapper functions for testing.
      * @return True if list of local HTMLDocument objects is empty.
      */
     public boolean pagesListIsEmpty() {
-<span class="fc" id="L73">        return localPages.isEmpty();</span>
+<span class="fc" id="L143">        return localPages.isEmpty();</span>
     }
 
     public boolean listOfURLsIsEmpty() {
-<span class="fc" id="L77">        return URLs.isEmpty();</span>
+<span class="fc" id="L147">        return URLs.isEmpty();</span>
     }
 
     /**
@@ -84,7 +154,7 @@ public class Website implements Iterable&lt;HTMLDocument&gt; {
      * @return boolean
      */
     public boolean containsURL(String URL) {
-<span class="fc" id="L87">        return URLs.contains(URL);</span>
+<span class="fc" id="L157">        return URLs.contains(URL);</span>
     }
 
     /**
@@ -94,7 +164,7 @@ public class Website implements Iterable&lt;HTMLDocument&gt; {
      * @return boolean
      */
     public boolean containsHTMLDocument(HTMLDocument documentToFind) {
-<span class="nc" id="L97">        return localPages.contains(documentToFind);</span>
+<span class="nc" id="L167">        return localPages.contains(documentToFind);</span>
     }
     /**
      * Provide toString() for debugging, print the site root directory name for now,
@@ -102,7 +172,22 @@ public class Website implements Iterable&lt;HTMLDocument&gt; {
      * @return The path to the site root directory.
      */
     public String toString() {
-<span class="nc" id="L105">        return siteRoot;</span>
+       // private List&lt;String&gt; URLs;
+    //private String siteRoot;
+    //private List&lt;HTMLDocument&gt; localPages;
+<span class="fc" id="L178">    StringBuilder out = new StringBuilder();</span>
+<span class="fc" id="L179">        out.append(&quot;Website{ URLs[&quot;);</span>
+<span class="fc bfc" id="L180" title="All 2 branches covered.">        for(String url: URLs)</span>
+        {
+<span class="fc" id="L182">            out.append(url + &quot;,&quot;);</span>
+<span class="fc" id="L183">        }</span>
+<span class="fc" id="L184">        out.append(&quot;], siteroot = \&quot;&quot; + siteRoot + &quot;\&quot;, localPages[&quot;);</span>
+<span class="pc bpc" id="L185" title="1 of 2 branches missed.">        for(HTMLDocument page: localPages)</span>
+        {
+<span class="nc" id="L187">            out.append(page.toString() + &quot;,&quot;);</span>
+<span class="nc" id="L188">        }</span>
+<span class="fc" id="L189">        out.append(&quot;] }&quot;);</span>
+<span class="fc" id="L190">        return out.toString();</span>
     }
     /**
      * NOTE: Website mutators intentionally omitted. It is assumed Website object will be
@@ -123,10 +208,10 @@ public class Website implements Iterable&lt;HTMLDocument&gt; {
          * user. 
          * @param inputPath
          */
-<span class="fc" id="L126">        public WebsiteWalker(String inputPath) {</span>
-<span class="fc" id="L127">            this.fullPathToSiteRoot = Path.of(inputPath).toAbsolutePath();</span>
-<span class="fc" id="L128">            this.siteRootName = Path.of(inputPath).getFileName().toString();</span>
-<span class="fc" id="L129">        }</span>
+<span class="fc" id="L211">        public WebsiteWalker(String inputPath) {</span>
+<span class="fc" id="L212">            this.fullPathToSiteRoot = Path.of(inputPath).toAbsolutePath();</span>
+<span class="fc" id="L213">            this.siteRootName = Path.of(inputPath).getFileName().toString();</span>
+<span class="fc" id="L214">        }</span>
 
 
         /**
@@ -135,9 +220,9 @@ public class Website implements Iterable&lt;HTMLDocument&gt; {
          * @return The WebsiteWalker object for chaining during build.
          */
         public WebsiteWalker URLs(List&lt;String&gt; URLs) {
-<span class="fc" id="L138">            this.URLs = URLs; </span>
+<span class="fc" id="L223">            this.URLs = URLs; </span>
 
-<span class="fc" id="L140">            return this;</span>
+<span class="fc" id="L225">            return this;</span>
         }
 
         /**
@@ -148,22 +233,22 @@ public class Website implements Iterable&lt;HTMLDocument&gt; {
          */
         public WebsiteWalker identifyPages() {
             //try to read every file as HTML, if it is HTML, put it in a Q
-<span class="fc" id="L151">            this.parseQueue = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L236">            this.parseQueue = new ArrayList&lt;String&gt;();</span>
             
-<span class="fc" id="L153">            try(Stream&lt;Path&gt; filepath = Files.walk(Paths.get(siteRootName).toAbsolutePath())) {</span>
-<span class="fc" id="L154">                filepath.forEach(path -&gt; {</span>
-<span class="fc bfc" id="L155" title="All 2 branches covered.">                    if(!(Files.isDirectory(path))) {</span>
-<span class="fc bfc" id="L156" title="All 2 branches covered.">                        if(fileContainsHTML(path)) {</span>
-<span class="fc" id="L157">                            parseQueue.add(path.toAbsolutePath().toString());</span>
+<span class="fc" id="L238">            try(Stream&lt;Path&gt; filepath = Files.walk(Paths.get(siteRootName).toAbsolutePath())) {</span>
+<span class="fc" id="L239">                filepath.forEach(path -&gt; {</span>
+<span class="fc bfc" id="L240" title="All 2 branches covered.">                    if(!(Files.isDirectory(path))) {</span>
+<span class="fc bfc" id="L241" title="All 2 branches covered.">                        if(fileContainsHTML(path)) {</span>
+<span class="fc" id="L242">                            parseQueue.add(path.toAbsolutePath().toString());</span>
                         }
                     }
-<span class="fc" id="L160">                });</span>
+<span class="fc" id="L245">                });</span>
             }
-<span class="fc" id="L162">            catch (IOException e) {</span>
-<span class="fc" id="L163">                e.printStackTrace();</span>
-<span class="fc" id="L164">            }</span>
+<span class="fc" id="L247">            catch (IOException e) {</span>
+<span class="fc" id="L248">                e.printStackTrace();</span>
+<span class="fc" id="L249">            }</span>
 
-<span class="fc" id="L166">            return this;</span>
+<span class="fc" id="L251">            return this;</span>
         }
 
         /**
@@ -173,16 +258,16 @@ public class Website implements Iterable&lt;HTMLDocument&gt; {
          */
         public WebsiteWalker analyzeLocalPages() {
 
-<span class="fc" id="L176">            this.localPages = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L261">            this.localPages = new ArrayList&lt;&gt;();</span>
 
-<span class="fc bfc" id="L178" title="All 2 branches covered.">            for (String page : this.parseQueue) {</span>
-<span class="fc" id="L179">                localPages.add(</span>
+<span class="fc bfc" id="L263" title="All 2 branches covered.">            for (String page : this.parseQueue) {</span>
+<span class="fc" id="L264">                localPages.add(</span>
                     new DocumentParser(fullPathToSiteRoot, page, URLs)
-<span class="fc" id="L181">                        .parse()</span>
+<span class="fc" id="L266">                        .parse()</span>
                     );
-<span class="fc" id="L183">            }</span>
+<span class="fc" id="L268">            }</span>
 
-<span class="fc" id="L185">            return this;</span>
+<span class="fc" id="L270">            return this;</span>
         }
 
         /**
@@ -192,30 +277,30 @@ public class Website implements Iterable&lt;HTMLDocument&gt; {
          */
         public Website build() {
             //construct website using data gathered by WebsiteWalker
-<span class="fc" id="L195">            Website website = new Website(this);</span>
-<span class="fc" id="L196">            validateWebsiteObject(website);</span>
-<span class="fc" id="L197">            return website;</span>
+<span class="fc" id="L280">            Website website = new Website(this);</span>
+<span class="fc" id="L281">            validateWebsiteObject(website);</span>
+<span class="fc" id="L282">            return website;</span>
         }
 
         private void validateWebsiteObject(Website website) {
             
-<span class="fc" id="L202">        }</span>
+<span class="fc" id="L287">        }</span>
 
         private boolean fileContainsHTML(Path fileToCheck) {
-<span class="fc" id="L205">            String unparsedFile = &quot;&quot;;</span>
-<span class="fc" id="L206">            String parsedFile = &quot;&quot;;</span>
+<span class="fc" id="L290">            String unparsedFile = &quot;&quot;;</span>
+<span class="fc" id="L291">            String parsedFile = &quot;&quot;;</span>
 
             try {
-<span class="fc" id="L209">                unparsedFile = Files.readString(fileToCheck);</span>
-<span class="fc" id="L210">                parsedFile = Jsoup.parse(unparsedFile).text();</span>
-<span class="nc" id="L211">            } catch (IOException e) {</span>
-<span class="nc" id="L212">                e.printStackTrace();</span>
-<span class="fc" id="L213">            }</span>
+<span class="fc" id="L294">                unparsedFile = Files.readString(fileToCheck);</span>
+<span class="fc" id="L295">                parsedFile = Jsoup.parse(unparsedFile).text();</span>
+<span class="nc" id="L296">            } catch (IOException e) {</span>
+<span class="nc" id="L297">                e.printStackTrace();</span>
+<span class="fc" id="L298">            }</span>
 
-<span class="fc bfc" id="L215" title="All 2 branches covered.">            if(unparsedFile.equals(parsedFile)) {</span>
-<span class="fc" id="L216">                return false;</span>
+<span class="fc bfc" id="L300" title="All 2 branches covered.">            if(unparsedFile.equals(parsedFile)) {</span>
+<span class="fc" id="L301">                return false;</span>
             } else {
-<span class="fc" id="L218">                return true;</span>
+<span class="fc" id="L303">                return true;</span>
             }
         }
     }

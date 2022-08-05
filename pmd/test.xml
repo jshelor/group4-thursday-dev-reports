@@ -1,38 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.39.0" timestamp="2022-08-04T15:57:20.458">
-<file name="/home/jshelor/odu/cs350/website-analysis/app/src/test/java/edu/odu/cs/cs350/WebsiteAnalysis/TestHTMLDocument.java">
-<violation beginline="16" endline="32" begincolumn="16" endcolumn="35" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestHTMLDocument" method="testURLtoPathMapping" variable="siteRoot" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
-Found 'DU'-anomaly for variable 'siteRoot' (lines '16'-'32').
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.39.0" timestamp="2022-08-04T20:55:49.534">
+<file name="/home/jshelor/odu/cs350/website-analysis/app/src/test/java/edu/odu/cs/cs350/WebsiteAnalysis/TestExcelWriter.java">
+<violation beginline="17" endline="35" begincolumn="16" endcolumn="39" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestExcelWriter" method="getTestWebsite" variable="relative0" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'relative0' (lines '17'-'35').
 </violation>
-<violation beginline="18" endline="32" begincolumn="16" endcolumn="69" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestHTMLDocument" method="testURLtoPathMapping" variable="URL0" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
-Found 'DU'-anomaly for variable 'URL0' (lines '18'-'32').
+<violation beginline="18" endline="35" begincolumn="16" endcolumn="44" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestExcelWriter" method="getTestWebsite" variable="relative1" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'relative1' (lines '18'-'35').
 </violation>
-<violation beginline="19" endline="32" begincolumn="16" endcolumn="74" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestHTMLDocument" method="testURLtoPathMapping" variable="URL1" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
-Found 'DU'-anomaly for variable 'URL1' (lines '19'-'32').
+<violation beginline="19" endline="35" begincolumn="16" endcolumn="65" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestExcelWriter" method="getTestWebsite" variable="relative2" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'relative2' (lines '19'-'35').
 </violation>
-<violation beginline="20" endline="32" begincolumn="16" endcolumn="95" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestHTMLDocument" method="testURLtoPathMapping" variable="URL2" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
-Found 'DU'-anomaly for variable 'URL2' (lines '20'-'32').
+<violation beginline="27" endline="35" begincolumn="16" endcolumn="31" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestExcelWriter" method="getTestWebsite" variable="siteRoot" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'siteRoot' (lines '27'-'35').
 </violation>
-<violation beginline="23" endline="32" begincolumn="14" endcolumn="73" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestHTMLDocument" method="testURLtoPathMapping" variable="fullPath0" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
-Found 'DU'-anomaly for variable 'fullPath0' (lines '23'-'32').
+</file>
+<file name="/home/jshelor/odu/cs350/website-analysis/app/src/test/java/edu/odu/cs/cs350/WebsiteAnalysis/TestJSONWriter.java">
+<violation beginline="18" endline="36" begincolumn="16" endcolumn="39" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestJSONWriter" method="getTestWebsite" variable="relative0" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'relative0' (lines '18'-'36').
 </violation>
-<violation beginline="24" endline="32" begincolumn="14" endcolumn="78" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestHTMLDocument" method="testURLtoPathMapping" variable="fullPath1" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
-Found 'DU'-anomaly for variable 'fullPath1' (lines '24'-'32').
+<violation beginline="19" endline="36" begincolumn="16" endcolumn="44" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestJSONWriter" method="getTestWebsite" variable="relative1" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'relative1' (lines '19'-'36').
 </violation>
-<violation beginline="25" endline="32" begincolumn="14" endcolumn="99" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestHTMLDocument" method="testURLtoPathMapping" variable="fullPath2" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
-Found 'DU'-anomaly for variable 'fullPath2' (lines '25'-'32').
+<violation beginline="20" endline="36" begincolumn="16" endcolumn="65" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestJSONWriter" method="getTestWebsite" variable="relative2" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'relative2' (lines '20'-'36').
 </violation>
-<violation beginline="27" endline="32" begincolumn="16" endcolumn="39" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestHTMLDocument" method="testURLtoPathMapping" variable="relative0" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
-Found 'DU'-anomaly for variable 'relative0' (lines '27'-'32').
-</violation>
-<violation beginline="28" endline="32" begincolumn="16" endcolumn="44" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestHTMLDocument" method="testURLtoPathMapping" variable="relative1" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
-Found 'DU'-anomaly for variable 'relative1' (lines '28'-'32').
-</violation>
-<violation beginline="29" endline="32" begincolumn="16" endcolumn="65" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestHTMLDocument" method="testURLtoPathMapping" variable="relative2" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
-Found 'DU'-anomaly for variable 'relative2' (lines '29'-'32').
-</violation>
-<violation beginline="31" endline="31" begincolumn="9" endcolumn="25" rule="UnnecessaryBooleanAssertion" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestHTMLDocument" method="testURLtoPathMapping" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#unnecessarybooleanassertion" priority="3">
-assertTrue(true) or similar statements are unnecessary
+<violation beginline="28" endline="36" begincolumn="16" endcolumn="31" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestJSONWriter" method="getTestWebsite" variable="siteRoot" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'siteRoot' (lines '28'-'36').
 </violation>
 </file>
 <file name="/home/jshelor/odu/cs350/website-analysis/app/src/test/java/edu/odu/cs/cs350/WebsiteAnalysis/TestPlaintextWriter.java">
@@ -64,6 +57,17 @@ Found 'DU'-anomaly for variable 'relative2' (lines '41'-'57').
 </violation>
 <violation beginline="49" endline="57" begincolumn="16" endcolumn="31" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestReportWriter" method="getTestWebsite" variable="siteRoot" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
 Found 'DU'-anomaly for variable 'siteRoot' (lines '49'-'57').
+</violation>
+</file>
+<file name="/home/jshelor/odu/cs350/website-analysis/app/src/test/java/edu/odu/cs/cs350/WebsiteAnalysis/TestStory04.java">
+<violation beginline="32" endline="52" begincolumn="16" endcolumn="39" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestStory04" method="story04SystemTest" variable="relative0" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'relative0' (lines '32'-'52').
+</violation>
+<violation beginline="33" endline="52" begincolumn="16" endcolumn="44" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestStory04" method="story04SystemTest" variable="relative1" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'relative1' (lines '33'-'52').
+</violation>
+<violation beginline="34" endline="52" begincolumn="16" endcolumn="65" rule="DataflowAnomalyAnalysis" ruleset="Error Prone" package="edu.odu.cs.cs350.WebsiteAnalysis" class="TestStory04" method="story04SystemTest" variable="relative2" externalInfoUrl="https://pmd.github.io/pmd-6.39.0/pmd_rules_java_errorprone.html#dataflowanomalyanalysis" priority="5">
+Found 'DU'-anomaly for variable 'relative2' (lines '34'-'52').
 </violation>
 </file>
 <file name="/home/jshelor/odu/cs350/website-analysis/app/src/test/java/edu/odu/cs/cs350/WebsiteAnalysis/TestWebsite.java">
